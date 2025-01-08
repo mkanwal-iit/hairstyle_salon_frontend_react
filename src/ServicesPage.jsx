@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 
 import { ServicesIndex } from "./ServicesIndex";
 import { AppointmentsIndex } from "./AppointmentsIndex";
-import { AppointmentNew } from "./AppointmentsNew";
 
 export function ServicesPage() {
   const [services, setServices] = useState([]);
@@ -35,26 +34,11 @@ export function ServicesPage() {
       });
   };
 
-  const handleAppointmentCreate = (params, successcallback) => {
-    console.log("handleAppointmentCreate");
-    axios
-      .post("/appointments.json", params)
-      .then((response) => {
-        console.log(response.data);
-        setAppointments([...appointments, response.data]);
-        successcallback();
-      })
-      .catch((error) => {
-        console.error("Error creating appointment:", error);
-      });
-  };
-
   useEffect(handleIndex, []);
   useEffect(handleAppointmentsIndex, []);
 
   return (
     <main>
-      <AppointmentNew onCreate={handleAppointmentCreate} />
       <AppointmentsIndex appointments={appointments} />
       <ServicesIndex services={services} />
     </main>
