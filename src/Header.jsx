@@ -1,23 +1,34 @@
 import { Link } from "react-router-dom";
 import { LogoutLink } from "./LogoutLink";
+import { ServicesIndex } from "./ServicesIndex"; // Import ServicesIndex component
 
-export function Header() {
-  const homeBackgroundUrl = "https://i.etsystatic.com/16895977/r/il/69634d/4897961404/il_570xN.4897961404_7839.jpg";
+export function Header({ services, onShow }) {
   return (
-    <header>
-      <nav className="flex flex-col items-center justify-center text-center">
-        <Link to="/">Home</Link> | <Link to="/signup">Signup</Link> |<Link to="/login">Login</Link> |{" "}
-        <Link to="/services">Services</Link> |<Link to="/appointments/new">New Appointment</Link> |
-        <LogoutLink />
-        <div>
-          <p className="text-4xl font-bold">Welcome to My Amazing Salon</p>
-          <img
-            src={homeBackgroundUrl}
-            alt="Home"
-            className="bg-cover bg-center h-[80vh] text-white flex flex-col justify-center items-center text-center"
-          />
+    <header className="bg-black shadow-md">
+      <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="flex items-center space-x-6">
+          <Link to="/" className="text-white hover:text-yellow-400 transition-colors">
+            Home
+          </Link>
+          <Link to="/signup" className="text-white hover:text-yellow-400 transition-colors">
+            Signup
+          </Link>
+          <Link to="/login" className="text-white hover:text-yellow-400 transition-colors">
+            Login
+          </Link>
+          <Link to="/services" className="text-white hover:text-yellow-400 transition-colors">
+            Services
+          </Link>
+          <Link to="/appointments/new" className="text-white hover:text-yellow-400 transition-colors">
+            New Appointment
+          </Link>
+          <LogoutLink className="text-white hover:text-yellow-400 transition-colors" />
         </div>
       </nav>
+      <div className="text-center py-8">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-yellow-400">Welcome to My Amazing Salon</h1>
+      </div>
+      <ServicesIndex services={services} onShow={onShow} /> {/* Add ServicesIndex component */}
     </header>
   );
 }
