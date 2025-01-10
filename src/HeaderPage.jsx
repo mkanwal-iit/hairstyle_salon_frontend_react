@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Header } from "./Header";
-import { ServicesIndex } from "./ServicesIndex";
 import { ServiceShow } from "./ServiceShow";
 import { Modal } from "./Modal";
+import { ServicesIndex } from "./ServicesIndex";
+
 export function HeaderPage() {
   const [services, setServices] = useState([]);
   const [isServiceShowVisible, setIsServiceShowVisible] = useState(false);

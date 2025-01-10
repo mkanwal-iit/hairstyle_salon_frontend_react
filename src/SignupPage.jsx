@@ -22,28 +22,42 @@ export function SignupPage() {
   };
 
   return (
-    <div id="signup">
-      <h1>Signup</h1>
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Name: <input name="name" type="text" />
-        </div>
-        <div>
-          Email: <input name="email" type="email" />
-        </div>
-        <div>
-          Password: <input name="password" type="password" />
-        </div>
-        <div>
-          Password confirmation: <input name="password_confirmation" type="password" />
-        </div>
-        <button type="submit">Signup</button>
-      </form>
+    <div id="signup" className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
+      <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h1 className="text-2xl font-bold mb-4">Signup</h1>
+        <ul className="mb-4">
+          {errors.map((error) => (
+            <li key={error} className="text-red-500">
+              {error}
+            </li>
+          ))}
+        </ul>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label className="block mb-1">Name:</label>
+            <input name="name" type="text" className="w-full p-2 rounded bg-gray-700 border border-gray-600" />
+          </div>
+          <div>
+            <label className="block mb-1">Email:</label>
+            <input name="email" type="email" className="w-full p-2 rounded bg-gray-700 border border-gray-600" />
+          </div>
+          <div>
+            <label className="block mb-1">Password:</label>
+            <input name="password" type="password" className="w-full p-2 rounded bg-gray-700 border border-gray-600" />
+          </div>
+          <div>
+            <label className="block mb-1">Password confirmation:</label>
+            <input
+              name="password_confirmation"
+              type="password"
+              className="w-full p-2 rounded bg-gray-700 border border-gray-600"
+            />
+          </div>
+          <button type="submit" className="w-full bg-yellow-500 text-black p-2 rounded mt-4">
+            Signup
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
