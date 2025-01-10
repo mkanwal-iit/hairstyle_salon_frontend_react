@@ -1,4 +1,6 @@
+import { useSearchParams } from "react-router";
 export function AppointmentNew({ onCreate }) {
+  const [searchParams, setSearchParams] = useSearchParams();
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
@@ -13,13 +15,12 @@ export function AppointmentNew({ onCreate }) {
           Date and Time: <input name="datetime" type="datetime-local" />
         </div>
         <div>
-          User ID: <input name="user_id" type="number" />
+          Hairstylist ID:{" "}
+          <input defaultValue={searchParams.get("hairstylist_id")} name="hairstylist_id" type="number" />
         </div>
         <div>
-          Hairstylist ID: <input name="hairstylist_id" type="number" />
-        </div>
-        <div>
-          Service ID: <input name="service_id" type="number" />
+          Service ID:
+          <input defaultValue={searchParams.get("service_id")} name="service_id" type="number" />
         </div>
         <button type="submit">Create Appointment</button>
       </form>

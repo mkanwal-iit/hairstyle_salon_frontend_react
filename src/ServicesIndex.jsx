@@ -1,4 +1,4 @@
-export function ServicesIndex({ services }) {
+export function ServicesIndex({ services, onShow }) {
   return (
     <div>
       <h1>All Services ({services.length} total)</h1>
@@ -9,6 +9,7 @@ export function ServicesIndex({ services }) {
           <p>Description: {service.description}</p>
           <p>Price: ${service.price}</p>
           <p>Duration: {service.duration} minutes</p>
+          <button onClick={() => onShow(service)}>Book</button>
         </div>
       ))}
     </div>
