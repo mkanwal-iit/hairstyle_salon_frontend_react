@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { LogoutLink } from "./LogoutLink";
-import { ServicesIndex } from "./ServicesIndex"; // Import ServicesIndex component
 
 export function Header({ services, onShow }) {
   return (
@@ -22,13 +21,15 @@ export function Header({ services, onShow }) {
           <Link to="/appointments/new" className="text-white hover:text-yellow-400 transition-colors">
             New Appointment
           </Link>
+          <Link to="/hairstylists" className="text-white hover:text-yellow-400 transition-colors">
+            Hairstylists
+          </Link>
           <LogoutLink className="text-white hover:text-yellow-400 transition-colors" />
         </div>
       </nav>
       <div className="text-center py-8">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-yellow-400">Welcome to My Amazing Salon</h1>
       </div>
-      <ServicesIndex services={services} onShow={onShow} /> {/* Add ServicesIndex component */}
     </header>
   );
 }
