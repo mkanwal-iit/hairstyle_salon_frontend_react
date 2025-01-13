@@ -53,6 +53,15 @@ function Weather({ initialCity = "Chicago", appointmentDate }) {
     return "The weather is suitable for this treatment.";
   };
 
+  const formatAppointmentDate = (date) => {
+    return date.toLocaleDateString("en-US", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
+  };
+
   if (error) return <p>{error}</p>;
   if (!weather) return <p>Loading...</p>;
 
@@ -65,6 +74,7 @@ function Weather({ initialCity = "Chicago", appointmentDate }) {
       <p className="mb-4">{recommendation}</p>
       <h3 className="text-xl font-semibold mt-4">Appointment Suggestion</h3>
       <p className="mb-4">{suggestAlternativeDay(weather)}</p>
+      <p className="mb-4">Appointment Date: {formatAppointmentDate(appointmentDate)}</p>
       <div className="flex flex-col sm:flex-row items-center gap-2">
         <input
           type="text"
@@ -80,6 +90,14 @@ function Weather({ initialCity = "Chicago", appointmentDate }) {
           Change City
         </button>
       </div>
+      <button
+        onClick={() =>
+          window.open(`https://www.google.com/maps/dir/?api=1&destination=667+NORTH+Main+Chicago,+IL+60559`, "_blank")
+        }
+        className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-400 transition-colors w-full sm:w-auto"
+      >
+        Get Directions
+      </button>
     </div>
   );
 }
