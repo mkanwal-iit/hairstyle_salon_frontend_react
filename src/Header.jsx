@@ -1,33 +1,60 @@
 import { Link } from "react-router-dom";
 import { LogoutLink } from "./LogoutLink";
+import { motion } from "framer-motion";
 
-export function Header() {
-  const homeBackgroundUrl = "https://i.etsystatic.com/16895977/r/il/69634d/4897961404/il_570xN.4897961404_7839.jpg";
+export function Header({ services, onShow }) {
   return (
-    <header>
-      <nav>
-        <Link to="/">Home</Link> | <Link to="/signup">Signup</Link> |<Link to="/login">Login</Link> |{" "}
-        <Link to="/services">Services</Link> |<Link to="/appointments/new">New Appointment</Link> |
-        <LogoutLink />
-        <div>
-          <p style={{ fontSize: "4rem", fontWeight: "bold" }}>Welcome to My Amazing Salon</p>
-          <img
-            src={homeBackgroundUrl}
-            alt="Home"
-            style={{
-              backgroundImage: `url(${homeBackgroundUrl})`,
-              backgroundPosition: "center",
-              height: "80vh", // This sets the height of the image background to fill the screen
-              color: "white", // Sets text color to white for better readability
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              textAlign: "center",
-            }}
-          />
+    <header className="bg-black shadow-md">
+      <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="flex items-center space-x-6">
+          <Link to="/" className="text-white hover:text-yellow-400 transition-colors">
+            Home
+          </Link>
+          <Link to="/signup" className="text-white hover:text-yellow-400 transition-colors">
+            Signup
+          </Link>
+          <Link to="/login" className="text-white hover:text-yellow-400 transition-colors">
+            Login
+          </Link>
+          <Link to="/services" className="text-white hover:text-yellow-400 transition-colors">
+            Services
+          </Link>
+          <Link to="/appointments/new" className="text-white hover:text-yellow-400 transition-colors">
+            New Appointment
+          </Link>
+          <Link to="/hairstylists" className="text-white hover:text-yellow-400 transition-colors">
+            Hairstylists
+          </Link>
+          <LogoutLink className="text-white hover:text-yellow-400 transition-colors" />
         </div>
       </nav>
+      <div className="text-center py-8">
+        <motion.h1
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-4xl md:text-5xl lg:text-6xl font-thin text-green-400 italic"
+          style={{ transform: "rotate(-10deg)" }}
+        >
+          the
+        </motion.h1>
+        <motion.h1
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="text-4xl md:text-5xl lg:text-10xl font-bold text-yellow-400"
+        >
+          Hair Haven
+        </motion.h1>
+        <motion.h1
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1 }}
+          className="text-4xl md:text-5xl lg:text-8xl font-bold text-yellow-400"
+        >
+          Studio
+        </motion.h1>
+      </div>
     </header>
   );
 }
