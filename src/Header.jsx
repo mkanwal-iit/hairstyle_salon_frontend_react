@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { LogoutLink } from "./LogoutLink";
+import { motion } from "framer-motion";
 
 export function Header({ services, onShow }) {
   return (
@@ -28,7 +29,31 @@ export function Header({ services, onShow }) {
         </div>
       </nav>
       <div className="text-center py-8">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-yellow-400">Welcome to My Amazing Salon</h1>
+        <motion.h1
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-4xl md:text-5xl lg:text-6xl font-thin text-green-400 italic"
+          style={{ transform: "rotate(-10deg)" }}
+        >
+          the
+        </motion.h1>
+        <motion.h1
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="text-4xl md:text-5xl lg:text-10xl font-bold text-yellow-400"
+        >
+          Hair Haven
+        </motion.h1>
+        <motion.h1
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1 }}
+          className="text-4xl md:text-5xl lg:text-8xl font-bold text-yellow-400"
+        >
+          Studio
+        </motion.h1>
       </div>
     </header>
   );
