@@ -10,42 +10,56 @@ export function Header() {
           <Link to="/" className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors">
             Home
           </Link>
-          <Link to="/signup" className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors">
-            Signup
-          </Link>
-          <Link to="/login" className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors">
-            Login
-          </Link>
-          <Link
-            to="/services"
-            className="bg-green-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors"
-          >
-            Services
-          </Link>
-          <Link
-            to="/appointments/new"
-            className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors"
-          >
-            New Appointment
-          </Link>
-          <Link
-            to="/hairstylists"
-            className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors"
-          >
-            Hairstylists
-          </Link>
-          <Link to="/hair" className="bg-red-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors">
-            Virtual HairColor TryOn
-          </Link>
-          <Link
-            to="/appointments"
-            className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors"
-          >
-            All Appointments
-          </Link>
-          <Link to="/logout" className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors">
-            LogOut
-          </Link>
+          {localStorage.email ? (
+            <>
+              <Link
+                to="/services"
+                className="bg-green-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors"
+              >
+                Services
+              </Link>
+              <Link
+                to="/appointments/new"
+                className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors"
+              >
+                New Appointment
+              </Link>
+              <Link
+                to="/hairstylists"
+                className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors"
+              >
+                Hairstylists
+              </Link>
+              <Link
+                to="/hair"
+                className="bg-red-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors"
+              >
+                Virtual HairColor TryOn
+              </Link>
+              <Link
+                to="/appointments"
+                className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors"
+              >
+                All Appointments
+              </Link>
+              <LogoutLink className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-400 transition-colors" />
+            </>
+          ) : (
+            <>
+              <Link
+                to="/signup"
+                className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors"
+              >
+                Signup
+              </Link>
+              <Link
+                to="/login"
+                className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors"
+              >
+                Login
+              </Link>
+            </>
+          )}
         </div>
       </nav>
       <div className="text-center py-8">

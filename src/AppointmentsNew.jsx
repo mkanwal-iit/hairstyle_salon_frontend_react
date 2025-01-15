@@ -1,7 +1,23 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
 import { useSearchParams } from "react-router";
 
 export function AppointmentNew({ onCreate }) {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
+  const [hairstylists, setHairstylists] = useState([]);
+  const [services, setServices] = useState([]);
+  const [selectedHairstylist, setSelectedHairstylist] = useState(searchParams.get("hairstylist_id") || "");
+  const [selectedService, setSelectedService] = useState(searchParams.get("service_id") || "");
+
+  useEffect(() => {
+    axios.get("/hairstylists.json").then((response) => {
+      setHairstylists(response.data);
+    });
+
+    axios.get("/services.json").then((response) => {
+      setServices(response.data);
+    });
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,22 +39,36 @@ export function AppointmentNew({ onCreate }) {
             />
           </div>
           <div>
-            <label className="block mb-1">Hairstylist ID:</label>
-            <input
-              defaultValue={searchParams.get("hairstylist_id")}
+            <label className="block mb-1">Hairstylist:</label>
+            <select
               name="hairstylist_id"
-              type="number"
+              value={selectedHairstylist}
+              onChange={(e) => setSelectedHairstylist(e.target.value)}
               className="w-full p-2 rounded bg-gray-700 border border-gray-600"
-            />
+            >
+              <option value="">Select a hairstylist</option>
+              {hairstylists.map((hairstylist) => (
+                <option key={hairstylist.id} value={hairstylist.id}>
+                  {hairstylist.name}
+                </option>
+              ))}
+            </select>
           </div>
           <div>
-            <label className="block mb-1">Service ID:</label>
-            <input
-              defaultValue={searchParams.get("service_id")}
+            <label className="block mb-1">Service:</label>
+            <select
               name="service_id"
-              type="number"
+              value={selectedService}
+              onChange={(e) => setSelectedService(e.target.value)}
               className="w-full p-2 rounded bg-gray-700 border border-gray-600"
-            />
+            >
+              <option value="">Select a service</option>
+              {services.map((service) => (
+                <option key={service.id} value={service.id}>
+                  {service.name}
+                </option>
+              ))}
+            </select>
           </div>
           <button type="submit" className="w-full bg-yellow-500 text-black p-2 rounded mt-4">
             Create Appointment

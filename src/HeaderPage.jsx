@@ -114,7 +114,7 @@ export function HeaderPage() {
           transition={{ duration: 1, delay: 2 }}
           className="mt-24"
         >
-          <ServicesIndex services={services} onShow={handleShow} />
+          {/* <ServicesIndex services={services} onShow={handleShow} /> */}
         </motion.div>
       </div>
       <Modal show={isServiceShowVisible} onClose={() => setIsServiceShowVisible(false)}>
