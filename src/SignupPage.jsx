@@ -22,9 +22,9 @@ export function SignupPage() {
   };
 
   return (
-    <div id="signup" className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
-      <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-4">Signup</h1>
+    <div id="signup" className="max-h-screen bg-gray-900 text-white flex items-center justify-center">
+      <div className="bg-gray-800 p-20 rounded-lg shadow-lg w-full max-w-md">
+        <h1 className="text-4xl font-bold mb-6">Signup</h1>
         <ul className="mb-4">
           {errors.map((error) => (
             <li key={error} className="text-red-500">

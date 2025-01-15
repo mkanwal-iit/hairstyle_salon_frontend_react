@@ -6,7 +6,9 @@ export function ServicesIndex({ services = [], onShow }) {
         {services.map((service) => (
           <div key={service.id} className="border p-4 bg-gray-800 shadow-md rounded-lg">
             <h2 className="text-xl font-semibold mb-2 text-white">{service.name}</h2>
-            <img src={service.service_image} alt={service.name} className="w-full h-16 object-cover mb-2 rounded-lg" />
+            <div className="w-full h-62 mb-2">
+              <img src={service.service_image} alt={service.name} className="w-full h-full object-cover rounded-lg" />
+            </div>
             <p className="mb-1 text-white">Description: {service.description}</p>
             <p className="mb-1 text-white">Price: ${service.price}</p>
             <p className="mb-2 text-white">Duration: {service.duration} minutes</p>

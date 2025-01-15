@@ -8,6 +8,9 @@ import { Footer } from "./Footer";
 import { AppointmentsNewPage } from "./AppointmentsNewPage";
 import { HeaderPage } from "./HeaderPage";
 import { HairstylistsIndexPage } from "./HairstylistIndexPage";
+import { HairColorPage } from "./HairColorPage";
+import { AppointmentIndexPage } from "./AppointmentIndexPage";
+import { LogoutLink } from "./LogoutLink";
 
 axios.defaults.baseURL = "http://localhost:3000";
 axios.defaults.withCredentials = true;
@@ -46,6 +49,20 @@ const router = createBrowserRouter([
         path: "/hairstylists",
         element: <HairstylistsIndexPage />,
         loader: () => axios.get("/hairstylists.json").then((response) => response.data),
+      },
+      {
+        path: "/hair",
+        element: <HairColorPage />,
+        // loader: () => axios.post("/hair.json").then((response) => response.data),
+      },
+      {
+        path: "/appointments",
+        element: <AppointmentIndexPage />,
+        loader: () => axios.get("/appointments.json").then((response) => response.data),
+      },
+      {
+        path: "/logout",
+        element: <LogoutLink />,
       },
     ],
   },

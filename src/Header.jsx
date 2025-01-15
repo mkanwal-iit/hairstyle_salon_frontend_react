@@ -2,30 +2,50 @@ import { Link } from "react-router-dom";
 import { LogoutLink } from "./LogoutLink";
 import { motion } from "framer-motion";
 
-export function Header({ services, onShow }) {
+export function Header() {
   return (
-    <header className="bg-black shadow-md">
-      <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="flex items-center space-x-6">
-          <Link to="/" className="text-white hover:text-yellow-400 transition-colors">
+    <header className="bg-black shadow-lg">
+      <nav className="container mx-auto px-6 py-6 flex justify-between items-center">
+        <div className="flex items-center space-x-4">
+          <Link to="/" className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors">
             Home
           </Link>
-          <Link to="/signup" className="text-white hover:text-yellow-400 transition-colors">
+          <Link to="/signup" className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors">
             Signup
           </Link>
-          <Link to="/login" className="text-white hover:text-yellow-400 transition-colors">
+          <Link to="/login" className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors">
             Login
           </Link>
-          <Link to="/services" className="text-white hover:text-yellow-400 transition-colors">
+          <Link
+            to="/services"
+            className="bg-green-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors"
+          >
             Services
           </Link>
-          <Link to="/appointments/new" className="text-white hover:text-yellow-400 transition-colors">
+          <Link
+            to="/appointments/new"
+            className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors"
+          >
             New Appointment
           </Link>
-          <Link to="/hairstylists" className="text-white hover:text-yellow-400 transition-colors">
+          <Link
+            to="/hairstylists"
+            className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors"
+          >
             Hairstylists
           </Link>
-          <LogoutLink className="text-white hover:text-yellow-400 transition-colors" />
+          <Link to="/hair" className="bg-red-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors">
+            Virtual HairColor TryOn
+          </Link>
+          <Link
+            to="/appointments"
+            className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors"
+          >
+            All Appointments
+          </Link>
+          <Link to="/logout" className="bg-gray-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition-colors">
+            LogOut
+          </Link>
         </div>
       </nav>
       <div className="text-center py-8">

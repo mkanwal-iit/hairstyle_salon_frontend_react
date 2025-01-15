@@ -22,10 +22,10 @@ export function AppointmentsNewPage() {
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6 flex flex-col items-center justify-center">
       <div className="flex flex-col md:flex-row gap-6 w-full max-w-4xl">
-        <div className="md:w-2/3">
+        <div className="md:w-1/2">
           <AppointmentNew onCreate={handleCreate} onDateChange={handleDateChange} />
         </div>
-        <div className="md:w-2/3">
+        <div className="md:w-1/2">
           <Weather initialCity="Chicago" appointmentDate={appointmentDate} />
         </div>
       </div>

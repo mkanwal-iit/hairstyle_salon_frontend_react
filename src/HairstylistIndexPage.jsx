@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { HairstylistsIndex } from "./HairstylistsIndex";
 import { Modal } from "./Modal";
 import { HairstylistShow } from "./HairstylistShow";

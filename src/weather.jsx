@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 function Weather({ initialCity = "Chicago", appointmentDate }) {
   const [city, setCity] = useState(initialCity);
@@ -62,19 +63,43 @@ function Weather({ initialCity = "Chicago", appointmentDate }) {
     });
   };
 
+  const handleGetDirections = () => {
+    const salonAddress = "1551 W North Ave Ashland, Chicago, IL 60622";
+    const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(salonAddress)}`;
+    window.open(googleMapsUrl, "_blank");
+  };
+
+  const convertToFahrenheit = (tempCelsius) => {
+    return (tempCelsius * 9) / 5 + 32;
+  };
+
   if (error) return <p>{error}</p>;
   if (!weather) return <p>Loading...</p>;
 
   return (
-    <div className="bg-gray-900 text-white p-6 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold mb-4">Weather in {city}</h2>
-      <p className="mb-2">Temperature: {weather.main.temp} °C</p>
-      <p className="mb-2">Condition: {weather.weather[0].description}</p>
-      <h3 className="text-xl font-semibold mt-4">Recommendation</h3>
-      <p className="mb-4">{recommendation}</p>
-      <h3 className="text-xl font-semibold mt-4">Appointment Suggestion</h3>
-      <p className="mb-4">{suggestAlternativeDay(weather)}</p>
-      <p className="mb-4">Appointment Date: {formatAppointmentDate(appointmentDate)}</p>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      className="bg-black text-white p-8 rounded-lg shadow-lg border border-gray-700 max-w-lg mx-auto"
+    >
+      <h2 className="text-3xl font-bold mb-4 text-center">Weather in {city}</h2>
+      <div className="flex items-center mb-4">
+        <img
+          src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+          alt={weather.weather[0].description}
+          className="w-16 h-16 mr-4"
+        />
+        <div>
+          <p className="mb-2 text-lg">Temperature: {convertToFahrenheit(weather.main.temp).toFixed(1)} °F</p>
+          <p className="mb-2 text-lg">Condition: {weather.weather[0].description}</p>
+        </div>
+      </div>
+      <h3 className="text-2xl font-semibold mt-4">Recommendation</h3>
+      <p className="mb-4 text-lg">{recommendation}</p>
+      <h3 className="text-2xl font-semibold mt-4">Appointment Suggestion</h3>
+      <p className="mb-4 text-lg">{suggestAlternativeDay(weather)}</p>
+      <p className="mb-4 text-lg">Appointment Date: {formatAppointmentDate(appointmentDate)}</p>
       <div className="flex flex-col sm:flex-row items-center gap-2">
         <input
           type="text"
@@ -91,14 +116,12 @@ function Weather({ initialCity = "Chicago", appointmentDate }) {
         </button>
       </div>
       <button
-        onClick={() =>
-          window.open(`https://www.google.com/maps/dir/?api=1&destination=667+NORTH+Main+Chicago,+IL+60559`, "_blank")
-        }
+        onClick={handleGetDirections}
         className="bg-blue-500 text-white px-4 py-2 rounded mt-4 hover:bg-blue-400 transition-colors w-full sm:w-auto"
       >
         Get Directions
       </button>
-    </div>
+    </motion.div>
   );
 }
 
