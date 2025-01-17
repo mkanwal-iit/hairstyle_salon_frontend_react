@@ -83,7 +83,7 @@ function Weather({ initialCity = "Chicago", appointmentDate }) {
       transition={{ duration: 0.5 }}
       className="bg-black text-white p-8 rounded-lg shadow-lg border border-gray-700 max-w-lg mx-auto"
     >
-      <h2 className="text-3xl font-bold mb-4 text-center">Weather in {city}</h2>
+      <h2 className="text-3xl font-bold mb-20 text-center">Weather in {city}</h2>
       <div className="flex items-center mb-4">
         <img
           src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}

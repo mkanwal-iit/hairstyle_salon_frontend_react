@@ -20,7 +20,10 @@ export function HairColorPage() {
 
   return (
     <div>
-      <HairColorChanger onCreate={handleCreate} />
+      <HairColorChanger
+        onCreate={handleCreate}
+        errorImage="https://helpdeskgeek.com/wp-content/pictures/2021/09/youtube-error.jpeg"
+      />
     </div>
   );
 }

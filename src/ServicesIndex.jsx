@@ -7,7 +7,11 @@ export function ServicesIndex({ services = [], onShow }) {
           <div key={service.id} className="border p-4 bg-gray-800 shadow-md rounded-lg">
             <h2 className="text-xl font-semibold mb-2 text-white">{service.name}</h2>
             <div className="w-full h-62 mb-2">
-              <img src={service.service_image} alt={service.name} className="w-full h-full object-cover rounded-lg" />
+              <img
+                src={service.service_image}
+                alt={service.name}
+                className="rounded-t w-full aspect-[4/3] object-cover"
+              />
             </div>
             <p className="mb-1 text-white">Description: {service.description}</p>
             <p className="mb-1 text-white">Price: ${service.price}</p>

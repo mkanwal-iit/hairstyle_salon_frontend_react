@@ -26,7 +26,7 @@ export function AppointmentNew({ onCreate }) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
+    <div className="rounded-t w-full aspect-[4/3] object-cover">
       <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-md">
         <h1 className="text-2xl font-bold mb-4">New Appointment</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -74,6 +74,27 @@ export function AppointmentNew({ onCreate }) {
             Create Appointment
           </button>
         </form>
+      </div>
+      <div className="mt-8">
+        <iframe
+          src="https://calendar.google.com/calendar/embed?src=809810a647215e3bc055745f0cbf820aaf017f3e708dd4d05189fb05d5f397f1%40group.calendar.google.com&ctz=America%2FChicago"
+          style={{ border: 0 }}
+          width="440"
+          height="300"
+          frameBorder="0"
+          scrolling="no"
+          title="Google Calendar"
+        ></iframe>
+      </div>
+      <div className="mt-4">
+        <a
+          href="https://www.google.com/calendar/render?action=TEMPLATE&text=HairColor&details=How+you+will+look+different&location=Hair+haven+Studio&dates=20250117T181400Z%2F20250125T181400Z"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-green-400 transition-colors w-full sm:w-auto"
+        >
+          Add Appointment to Google Calendar
+        </a>
       </div>
     </div>
   );

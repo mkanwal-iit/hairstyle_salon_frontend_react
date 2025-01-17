@@ -1,5 +1,5 @@
 import { useState } from "react";
-export function HairColorChanger({ onCreate }) {
+export function HairColorChanger({ onCreate, errorImage }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = {
@@ -87,7 +87,12 @@ export function HairColorChanger({ onCreate }) {
           )}
         </form>
         <img src={resultImage} />
-        <p>{errorMessage}</p>
+        {errorMessage && (
+          <div>
+            <h2>Error</h2>
+            <img src={errorImage} alt="Error" />
+          </div>
+        )}
       </div>
     </div>
   );
