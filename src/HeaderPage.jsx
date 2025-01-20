@@ -66,7 +66,7 @@ export function HeaderPage() {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 1 }}
-            className="md:w-1/3 flex flex-col justify-center font-serif"
+            className="md:w-2/3 flex flex-col justify-center font-serif"
           >
             <br />
             <h3 className="text-4xl mb-12 text-green">About Us</h3>
@@ -127,7 +127,7 @@ export function HeaderPage() {
             <img
               src="/src/madiha.png"
               alt="Owner"
-              className="w-38 h-62 object-cover rounded-full shadow-lg absolute opacity-60"
+              className=" w-1/4 mt-24 object-cover rounded-full shadow-lg absolute opacity-60"
               style={{
                 mixBlendMode: "normal",
               }}

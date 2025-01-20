@@ -28,7 +28,7 @@ export function ServicesPage() {
   useEffect(handleIndex, []);
 
   return (
-    <main className="bg-gray-900 text-white p-6">
+    <main className="bg-gray-900 text-white p-6 container mx-auto">
       <div className="mb-6">
         <ServicesIndex services={services} onShow={handleShow} />
       </div>

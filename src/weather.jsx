@@ -15,7 +15,7 @@ function Weather({ initialCity = "Chicago", appointmentDate }) {
       .then((response) => {
         setWeather(response.data);
         generateRecommendation(response.data);
-        setError(null); // Clear any previous errors
+        setError(null);
       })
       .catch((error) => {
         console.error("Error fetching weather:", error.response ? error.response.data : error.message);

@@ -15,7 +15,7 @@ export function HairstylistsIndexPage() {
   };
 
   return (
-    <div>
+    <div className="container mx-auto">
       <HairstylistsIndex hairstylists={hairstylists} onShow={handleShow} />
       <Modal show={isHairstylistShowVisible} onClose={() => setIsHairstylistShowVisible(false)}>
         <HairstylistShow hairstylist={currentHairstylist} />
