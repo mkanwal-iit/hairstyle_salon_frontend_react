@@ -13,7 +13,7 @@ export function HairstylistsIndex({ hairstylists = [], onShow }) {
             />
             <p className="mb-1 text-white">Bio: {hairstylist.bio}</p>
             <button className="bg-yellow-500 text-black px-4 py-2 mt-2 rounded" onClick={() => onShow(hairstylist)}>
-              Ours Haistylists
+              Ours Hairstylists
             </button>
           </div>
         ))}
