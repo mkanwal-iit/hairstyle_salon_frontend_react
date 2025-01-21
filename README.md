@@ -4,6 +4,9 @@ A full-stack salon management system built with a Ruby on Rails API backend and 
 
 ![App Screenshot](screenshot.jpg)
 
+- Other images are at the bottom of the page
+  https://github.com/mkanwal-iit/hairstyle_frontend_react/blob/main/README.md#screenshots
+
 [Watch the Video Presentation](YOUR_VIDEO_URL)
 
 ## Technical Stack
@@ -116,3 +119,33 @@ git clone https://github.com/mkanwal-iit/hairstyle_salon-app-.git
 ### Contact
 
 Madiha Kanwal - madiha@duck.com
+
+## Screenshots
+
+### Homepage
+
+![Homepage](homepage.jpg)
+
+### Appointments/Services
+
+![Services](services.png)
+
+### Hairstyle Changer
+
+![Hairstyle Changer](hairstyle_changer.png)
+
+### Weather based hairstyle suggestions
+
+![Weather based hairstyle suggestions](weather.png)
+
+### Appointments/Hairstylist
+
+![Hairstylist](hairstylist.png)
+
+### Get Directions
+
+![Get Directions](/map.png)
+
+### Add Appointment to Google Calendar
+
+![Add Appointment to Google Calendar](/googleCalender.png)

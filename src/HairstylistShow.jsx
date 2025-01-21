@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 export function HairstylistShow({ hairstylist }) {
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center">
-      <div className="bg-gray-800 p-8 rounded-lg shadow-lg w-full max-w-2xl">
+    <div className="max-h-screen bg-gray-750 text-white flex items-center justify-center">
+      <div className="bg-gray-900 p-8 rounded-lg shadow-lg w-full max-w-xl">
         <h1 className="text-2xl font-bold mb-4 text-yellow-400">Hairstylist Profile</h1>
         <p className="mb-2">
           <span className="font-semibold">Name:</span> {hairstylist.name}
