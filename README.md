@@ -5,7 +5,7 @@ A full-stack salon management system built with a Ruby on Rails API backend and 
 ![App Screenshot](screenshot.jpg)
 
 - Other images are at the bottom of the page
-  https://github.com/mkanwal-iit/hairstyle_frontend_react/blob/main/README.md#screenshots
+- https://github.com/mkanwal-iit/hairstyle_salon_frontend_react#screenshots
 
 [Watch the Video Presentation](YOUR_VIDEO_URL)
 
